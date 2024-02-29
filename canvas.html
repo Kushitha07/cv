@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Arc</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="400" height="400"></canvas>
+
+  <script>
+
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    
+    ctx.beginPath();
+    var x = canvas.width / 2; // X coordinate of the center
+    var y = canvas.height / 2; // Y coordinate of the center
+    var radius = 75; // Arc radius
+    var startAngle = 0; // Start angle in radians
+    var endAngle = Math.PI * 2; // End angle in radians (full circle)
+    var anticlockwise = false; // Draw the arc in the clockwise direction
+    ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+    ctx.strokeStyle = "blue"; // Arc color
+    ctx.lineWidth = 5; // Arc line width
+    ctx.stroke();
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#registrationForm").submit(function(event){
+        var isValid = true;
+        var firstName = $("#first_name").val();
+        var lastName = $("#last_name").val();
+        if (!/^[a-zA-Z]{8,}$/.test(firstName) || !/^[a-zA-Z]{8,}$/.test(lastName)) {
+            isValid = false;
+            alert("First Name and Last Name should contain only alphabets and the length should not be less than 8 characters.");
+        }
+
+        var username = $("#username").val();
+        if (!/^\w+$/.test(username)) {
+            isValid = false;
+            alert("Username should contain combination of alphabets, numbers, and underscore. It should not allow spaces and special symbols.");
+        }
+
+        var password = $("#password").val();
+        if (!/(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.\W).{8,}/.test(password)) {
+            isValid = false;
+            alert("Password should be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one number, and one special symbol.");
+        }
+
+        var dob = $("#dob").val();
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(dob)) {
+            isValid = false;
+            alert("Date of Birth should be in valid format (YYYY-MM-DD).");
+        }
+
+        var postalCode = $("#postal_code").val();
+        if (!/^\d{6}$/.test(postalCode)) {
+            isValid = false;
+            alert("Postal Code must be a 6-digit valid number.");
+        }
+
+        var mobileNo = $("#mobile_no").val();
+        if (!/^\d{10}$/.test(mobileNo)) {
+            isValid = false;
+            alert("Mobile No. should be a 10-digit number.");
+        }
+
+        var email = $("#email").val();
+        if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email)) {
+            isValid = false;
+            alert("Invalid email format.");
+        }
+
+        if (!isValid) {
+            event.preventDefault(); 
+        }
+    });
+});
+</script>
+</head>
+<body>
+
+<form id="registrationForm" action="submit.php" method="post">
+    First Name: <input type="text" id="first_name" name="first_name"><br>
+    Last Name: <input type="text" id="last_name" name="last_name"><br>
+    Username: <input type="text" id="username" name="username"><br>
+    Password: <input type="password" id="password" name="password"><br>
+    Date of Birth: <input type="text" id="dob" name="dob" placeholder="YYYY-MM-DD"><br>
+    Postal Code: <input type="text" id="postal_code" name="postal_code"><br>
+    Mobile No.: <input type="text" id="mobile_no" name="mobile_no"><br>
+    Email: <input type="email" id="email" name="email"><br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

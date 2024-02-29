@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        h1{
+            text-align: center;
+            background-color: grey;
+        }
+        .menu-item {
+            cursor: pointer;
+            onclick="showDescription('Gobi Manhuria', 'Description of the appetizer. Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'Price: $9.99')
+            
+            
+        }
+        
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Restaurant Menu</h1>
+    </header>
+
+        <h2>Starters</h2>
+        <ul>
+        <div class="menu-item" ondblclick="eraseItem(this)" onclick="showDescription('Gobi Manhuria', 'Description of the appetizer. Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'Price: $9.99')">
+            
+            <li>Gobi Manchuria</li><br>
+        </div>
+        <div class="menu-item" ondblclick="eraseItem(this)" onclick="showDescription('Chilly Chicken', 'Description of the appetizer. Lorem ipsum dolodolor sit amet, consectetur adipiscing elit.', 'Price: $9.99')">
+            <li>Chilly Chicken</li><br>
+        </div>
+        <div class="menu-item" ondblclick="eraseItem(this)" onclick="showDescription('Chilly Chicken', 'Description of the appetizer. Lorem ipsum dolodolor sit amet, consectetur adipiscing elit.', 'Price: $9.99')">
+            <li>Dragon Chicken</li><br>
+        </div>
+        <div class="menu-item"ondblclick="eraseItem(this)"  onclick="showDescription('Chilly Chicken', 'Description of the appetizer. Lorem ipsum dolodolor sit amet, consectetur adipiscing elit.', 'Price: $9.99')">
+            <li>Chicken Lollipop</li><br></ul>
+        </div>
+       
+        <h2>Main Course</h2>
+        <ul><li>Chicken Biriyani</li><br>
+        <li>Mutton Biriyani</li><br>
+        <li>Gobi Rice</li><br>
+        <li>Panner Rice</li><br></ul>
+        <script>
+             function showDescription(itemName, description, price) {
+            alert(`${itemName}\n${description}\n${price}`);
+        }
+        function eraseItem(item) {
+            item.remove();
+        }
+        </script>
+
+
+</body>
+</html>
